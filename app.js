@@ -97,7 +97,7 @@ More Hints: The existing starter Pokemon will be *replaced* in your party with t
 Solve Exercise 7 here:
 */
 
-
+game.party[0] = pokemon[1];
 
 /*
 Exercise 8
@@ -138,6 +138,10 @@ After writing this method, call it and pass in a Pokemon object of your choice f
 Solve Exercise 10 here:
 */
 
+game.catchPokemon = function (pokemonObj){
+    game.party.push(pokemonObj);
+}
+game.catchPokemon(pokemon[43]);
 /*
 Exercise 11
 1. Copy the `catchPokemon` method that you just wrote above, and paste it below. Modify it so that it also decreases the number of pokeballs in your inventory each time you catch a Pokémon.
@@ -150,7 +154,11 @@ Also, log the `game.items` array to confirm that the pokeball quantity is being 
 
 Solve Exercise 11 here:
 */
-
+game.catchPokemon = function (pokemonObj){
+    game.party.push(pokemonObj);
+    game.items[1].quantity--; 
+}
+game.catchPokemon(pokemon[50]);
 
 /*
 Exercise 12
@@ -191,8 +199,25 @@ For example, if five gym objects have a value of `true` on their `completed` pro
 
 Solve Exercise 13 here:
 */
+game.gymStatus = function (){
+    const gymTally = {
+        completed : 0 ,
+        incomplete : 0 
+    }
+   
 
+    for (const element of game.gyms){
+        if ( element.completed ){
+          
+            gymTally.completed++
 
+        } else {  
+            gymTally.incomplete++
+
+        }
+    }
+}
+console.log(game.gymStatus);
 /*
 Exercise 14
 1. Add a `partyCount` method to `game` that counts the number of Pokémon in your party.
