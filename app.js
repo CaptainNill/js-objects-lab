@@ -229,7 +229,11 @@ This method should:
 
 Solve Exercise 14 here:
 */
+game.partyCount = function(){
+    return game.party.length;
+}
 
+console.log(`The party count is: ${game.partyCount()}`);
 /*
 Exercise 15
 1. Now, complete gyms with a difficulty below 8. Reflect on how this is similar to or different from the previous gym exercises.
